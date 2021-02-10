@@ -131,8 +131,16 @@ public class Problem {
      * @param gl переменная OpenGL для рисования
      */
     public void render(GL2 gl) {
-        for (Point point : points) {
-            point.render(gl);
-        }
+//        for (Point point : points) {
+//            point.render(gl);
+//        }
+
+        Figures.renderPoint(gl,0.1,0.7, 5);
+        Figures.renderPoint(gl,0.3,0.6, 7);
+
+        Figures.renderLine(gl, 0.4, 0.8, 0.8, 0.5, 5 );
+        Figures.renderTriangle(gl, -0.1, -0.5, -0.3, 0.5, -0.7, 0.6, true);
+        Figures.renderQuad(gl, 0.1, 0.1, 0.1, 0.5, 0.8, 0.5, 0.8, 0.1, false);
+
     }
 }
