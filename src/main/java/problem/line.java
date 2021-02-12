@@ -13,6 +13,8 @@ public class line {
     double b;
     double c;
 
+
+
     public line(int x1, int y1, int x2, int y2) {
         this.a = y1 - y2;
         this.b = x2 - x1;
