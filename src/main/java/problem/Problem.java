@@ -140,7 +140,8 @@ public class Problem {
 
         Figures.renderLine(gl, 0.4, 0.8, 0.8, 0.5, 5 );
         Figures.renderTriangle(gl, -0.1, -0.5, -0.3, 0.5, -0.7, 0.6, true);
-        Figures.renderQuad(gl, 0.1, 0.1, 0.1, 0.5, 0.8, 0.5, 0.8, 0.1, false);
+        Figures.renderQuad(gl, 0.1, 0.1, 0.1, 0.5, 0.8, 0.5, 0.8, 0.1, true);
 
+        Figures.renderCircle(gl, 0, 0, 0.6, false);
     }
 }

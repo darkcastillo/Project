@@ -88,4 +88,40 @@ public class Figures {
         }
     }
 
+    public static void renderCircle(GL2 gl, double posX, double posY, double rad, boolean filled) {
+        if (filled) {
+
+            gl.glColor3d(1, 1, 0);
+            gl.glBegin(GL_TRIANGLE_FAN);
+
+            gl.glVertex2d(posX, posY);
+
+            for (int i = 0 ; i <= 50 ; i++) {
+                double ugol = Math.toRadians(i * (360.0 / 50));
+
+                double x = posX + rad * Math.cos(ugol);
+                double y = posY + rad * Math.sin(ugol);
+
+                gl.glVertex2d(x, y);
+            }
+
+            gl.glEnd();
+        }
+        else {
+            gl.glColor3d(0, 1, 0);
+            gl.glBegin(GL_LINE_STRIP);
+
+            for (int i = 0 ; i <= 50 ; i++) {
+                double ugol = Math.toRadians(i * (360.0 / 50));
+
+                double x = posX + rad * Math.cos(ugol);
+                double y = posY + rad * Math.sin(ugol);
+
+                gl.glVertex2d(x, y);
+            }
+
+            gl.glEnd();
+        }
+    }
+
 }
