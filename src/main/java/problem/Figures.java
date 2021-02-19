@@ -124,4 +124,50 @@ public class Figures {
         }
     }
 
+    public static void renderEllips(GL2 gl, double posAX, double posAY, double posBX, double posBY) {
+        gl.glColor3d(0, 1, 0);
+
+        if (posAX < posBX) {
+            if (posAY > posBY) {
+
+                double posCX = posBX;
+                double posCY = posAY;
+
+                double posDX = posAX;
+                double posDY = posBY;
+
+                gl.glBegin(GL_LINE_STRIP);
+
+                gl.glVertex2d(posAX, posAY);
+                gl.glVertex2d(posCX, posCY);
+                gl.glVertex2d(posBX, posBY);
+                gl.glVertex2d(posDX, posDY);
+                gl.glVertex2d(posAX, posAY);
+
+                gl.glEnd();
+
+            }
+            else {
+
+                double posCX = posAX;
+                double posCY = posBY;
+
+                double posDX = posBX;
+                double posDY = posAY;
+
+                gl.glBegin(GL_LINE_STRIP);
+
+                gl.glVertex2d(posAX, posAY);
+                gl.glVertex2d(posCX, posCY);
+                gl.glVertex2d(posBX, posBY);
+                gl.glVertex2d(posDX, posDY);
+                gl.glVertex2d(posAX, posAY);
+
+                gl.glEnd();
+            }
+
+            }
+        }
+    }
+
 }
