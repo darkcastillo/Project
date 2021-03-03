@@ -1,6 +1,9 @@
 package problem;
+
 import javax.media.opengl.GL2;
 import javax.media.opengl.GL2GL3;
+import java.awt.*;
+import javax.swing.*;
 
 import static javax.media.opengl.GL.*;
 
@@ -18,7 +21,7 @@ public class Figures {
         gl.glPointSize(size);
         gl.glBegin(GL_POINTS);
         gl.glColor3d(1, 1, 1);
-        gl.glVertex2d(posX,posY);
+        gl.glVertex2d(posX, posY);
 
         gl.glEnd();
     }
@@ -28,10 +31,10 @@ public class Figures {
         gl.glBegin(GL_LINES);
 
         gl.glColor3d(1, 1, 1);
-        gl.glVertex2d(posAX,posAY);
+        gl.glVertex2d(posAX, posAY);
 
         gl.glColor3d(1, 0, 1);
-        gl.glVertex2d(posBX,posBY);
+        gl.glVertex2d(posBX, posBY);
 
         gl.glEnd();
     }
@@ -46,10 +49,7 @@ public class Figures {
             gl.glVertex2d(posCX, posCY);
 
             gl.glEnd();
-        }
-
-
-        else {
+        } else {
             gl.glColor3d(1, 0, 0);
             gl.glBegin(GL_LINE_STRIP);
 
@@ -73,8 +73,7 @@ public class Figures {
             gl.glVertex2d(posDX, posDY);
 
             gl.glEnd();
-        }
-        else {
+        } else {
             gl.glColor3d(0, 1, 0);
             gl.glBegin(GL_LINE_STRIP);
 
@@ -96,7 +95,7 @@ public class Figures {
 
             gl.glVertex2d(posX, posY);
 
-            for (int i = 0 ; i <= 50 ; i++) {
+            for (int i = 0; i <= 50; i++) {
                 double ugol = Math.toRadians(i * (360.0 / 50));
 
                 double x = posX + rad * Math.cos(ugol);
@@ -106,12 +105,11 @@ public class Figures {
             }
 
             gl.glEnd();
-        }
-        else {
+        } else {
             gl.glColor3d(0, 1, 0);
             gl.glBegin(GL_LINE_STRIP);
 
-            for (int i = 0 ; i <= 50 ; i++) {
+            for (int i = 0; i <= 50; i++) {
                 double ugol = Math.toRadians(i * (360.0 / 50));
 
                 double x = posX + rad * Math.cos(ugol);
@@ -127,15 +125,64 @@ public class Figures {
     public static void renderEllips(GL2 gl, double posAX, double posAY, double posBX, double posBY) {
         gl.glColor3d(0, 1, 0);
 
+        double posEX = (posAX + posBX) / 2;
+        double posEY = (posAY + posBY) / 2;
+
+
+        double shirina = Math.abs(posBX - posAX)/2;
+        double  visota = Math.abs(posAY - posBY)/2;
+
         if (posAX < posBX) {
             if (posAY > posBY) {
 
-                double posCX = posBX;
-                double posCY = posAY;
+                        double posCX = posBX;
+                      double posCY = posAY;
+
 
                 double posDX = posAX;
                 double posDY = posBY;
 
+
+                gl.glBegin(GL_LINE_STRIP);
+                for (int i = 0; i <= 360; i++) {
+
+                  double  x = shirina * Math.sin(Math.toRadians(i));
+                  double  y = visota * Math.cos(Math.toRadians(i));
+
+
+                        gl.glVertex2d((x + posEX), (y + posEY));
+
+                }
+                gl.glEnd();
+                gl.glBegin(GL_LINE_STRIP);
+                    gl.glVertex2d(posAX, posAY);
+                    gl.glVertex2d(posCX, posCY);
+                    gl.glVertex2d(posBX, posBY);
+                   gl.glVertex2d(posDX, posDY);
+                    gl.glVertex2d(posAX, posAY);
+
+                   gl.glEnd();
+
+            } else {
+
+                       double posCX = posAX;
+                      double posCY = posBY;
+
+                    double posDX = posBX;
+                    double posDY = posAY;
+
+
+                gl.glBegin(GL_LINE_STRIP);
+                for (int i = 0; i <= 360; i++) {
+                           double x = shirina * Math.sin(Math.toRadians(i));
+                         double y = visota * Math.cos(Math.toRadians(i));
+
+
+                    gl.glVertex2d((x + posEX), (y + posEY));
+
+                }
+
+                gl.glEnd();
                 gl.glBegin(GL_LINE_STRIP);
 
                 gl.glVertex2d(posAX, posAY);
@@ -145,29 +192,72 @@ public class Figures {
                 gl.glVertex2d(posAX, posAY);
 
                 gl.glEnd();
-
             }
-            else {
 
-                double posCX = posAX;
-                double posCY = posBY;
+        } else {
+            if (posAY > posBY) {
+
+                   double posCX = posAX;
+                   double posCY = posBY;
 
                 double posDX = posBX;
                 double posDY = posAY;
 
                 gl.glBegin(GL_LINE_STRIP);
+                for (int i = 0; i <= 360; i++) {
 
-                gl.glVertex2d(posAX, posAY);
-                gl.glVertex2d(posCX, posCY);
-                gl.glVertex2d(posBX, posBY);
-                gl.glVertex2d(posDX, posDY);
-                gl.glVertex2d(posAX, posAY);
 
+                    double x = shirina * Math.sin(Math.toRadians(i));
+                   double  y = visota * Math.cos(Math.toRadians(i));
+
+
+                        gl.glVertex2d((x + posEX), (y + posEY));
+
+                }
                 gl.glEnd();
-            }
+                     gl.glBegin(GL_LINE_STRIP);
+
+                     gl.glVertex2d(posAX, posAY);
+                    gl.glVertex2d(posCX, posCY);
+                    gl.glVertex2d(posBX, posBY);
+                     gl.glVertex2d(posDX, posDY);
+                   gl.glVertex2d(posAX, posAY);
+
+                   gl.glEnd();
+
+            } else {
+
+                             double posCX = posBX;
+                            double posCY = posAY;
+
+                    double posDX = posAX;
+                    double posDY = posBY;
+
+
+                    gl.glBegin(GL_LINE_STRIP);
+                    for (int i = 0; i <= 360; i++) {
+
+                       double x = shirina * Math.sin(Math.toRadians(i));
+                       double y = visota * Math.cos(Math.toRadians(i));
+
+
+                            gl.glVertex2d((x + posEX), (y + posEY));
+                    }
+                    gl.glEnd();
+                        gl.glBegin(GL_LINE_STRIP);
+
+                        gl.glVertex2d(posAX, posAY);
+                         gl.glVertex2d(posCX, posCY);
+                        gl.glVertex2d(posBX, posBY);
+                        gl.glVertex2d(posDX, posDY);
+                       gl.glVertex2d(posAX, posAY);
+
+                        gl.glEnd();
 
             }
         }
+
+
     }
 
 }
