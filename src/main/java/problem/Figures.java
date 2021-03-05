@@ -154,14 +154,14 @@ public class Figures {
 
                 }
                 gl.glEnd();
-                gl.glBegin(GL_LINE_STRIP);
-                    gl.glVertex2d(posAX, posAY);
-                    gl.glVertex2d(posCX, posCY);
-                    gl.glVertex2d(posBX, posBY);
-                   gl.glVertex2d(posDX, posDY);
-                    gl.glVertex2d(posAX, posAY);
-
-                   gl.glEnd();
+//                gl.glBegin(GL_LINE_STRIP);
+//                    gl.glVertex2d(posAX, posAY);
+//                    gl.glVertex2d(posCX, posCY);
+//                    gl.glVertex2d(posBX, posBY);
+//                   gl.glVertex2d(posDX, posDY);
+//                    gl.glVertex2d(posAX, posAY);
+//
+//                   gl.glEnd();
 
             } else {
 
@@ -183,15 +183,15 @@ public class Figures {
                 }
 
                 gl.glEnd();
-                gl.glBegin(GL_LINE_STRIP);
-
-                gl.glVertex2d(posAX, posAY);
-                gl.glVertex2d(posCX, posCY);
-                gl.glVertex2d(posBX, posBY);
-                gl.glVertex2d(posDX, posDY);
-                gl.glVertex2d(posAX, posAY);
-
-                gl.glEnd();
+//                gl.glBegin(GL_LINE_STRIP);
+//
+//                gl.glVertex2d(posAX, posAY);
+//                gl.glVertex2d(posCX, posCY);
+//                gl.glVertex2d(posBX, posBY);
+//                gl.glVertex2d(posDX, posDY);
+//                gl.glVertex2d(posAX, posAY);
+//
+//                gl.glEnd();
             }
 
         } else {
@@ -215,15 +215,15 @@ public class Figures {
 
                 }
                 gl.glEnd();
-                     gl.glBegin(GL_LINE_STRIP);
-
-                     gl.glVertex2d(posAX, posAY);
-                    gl.glVertex2d(posCX, posCY);
-                    gl.glVertex2d(posBX, posBY);
-                     gl.glVertex2d(posDX, posDY);
-                   gl.glVertex2d(posAX, posAY);
-
-                   gl.glEnd();
+//                     gl.glBegin(GL_LINE_STRIP);
+//
+//                     gl.glVertex2d(posAX, posAY);
+//                    gl.glVertex2d(posCX, posCY);
+//                    gl.glVertex2d(posBX, posBY);
+//                     gl.glVertex2d(posDX, posDY);
+//                   gl.glVertex2d(posAX, posAY);
+//
+//                   gl.glEnd();
 
             } else {
 
@@ -244,15 +244,15 @@ public class Figures {
                             gl.glVertex2d((x + posEX), (y + posEY));
                     }
                     gl.glEnd();
-                        gl.glBegin(GL_LINE_STRIP);
-
-                        gl.glVertex2d(posAX, posAY);
-                         gl.glVertex2d(posCX, posCY);
-                        gl.glVertex2d(posBX, posBY);
-                        gl.glVertex2d(posDX, posDY);
-                       gl.glVertex2d(posAX, posAY);
-
-                        gl.glEnd();
+//                        gl.glBegin(GL_LINE_STRIP);
+//
+//                        gl.glVertex2d(posAX, posAY);
+//                         gl.glVertex2d(posCX, posCY);
+//                        gl.glVertex2d(posBX, posBY);
+//                        gl.glVertex2d(posDX, posDY);
+//                       gl.glVertex2d(posAX, posAY);
+//
+//                        gl.glEnd();
 
             }
         }

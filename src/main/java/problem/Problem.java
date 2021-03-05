@@ -144,7 +144,8 @@ public class Problem {
 
         //   Figures.renderCircle(gl, 0, 0, 0.6, false);
 
-            Figures.renderEllips(gl, 0.7, 0.3, 0.5, 0.6);
+        Ellips ellips = new Ellips(0.7, 0.3, 0.5, 0.6);
+        ellips.render(gl);
 
     }
 }
