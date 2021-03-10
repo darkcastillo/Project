@@ -13,8 +13,11 @@ public class Problem {
      * текст задачи
      */
     public static final String PROBLEM_TEXT = "ПОСТАНОВКА ЗАДАЧИ:\n" +
-            "Заданы два множества точек в пространстве.\n" +
-            "Требуется построить пересечения и разность этих множеств";
+            "На плоскости задано множество точек, и \"параллельный\" эллипс. Множество точек\n" +
+            "образует все возможные прямые, которые могут быть построены парами точек\n" +
+            "множества. Найти такую прямую (и такие две точки, через которые она проходит),\n" +
+            "что эта прямая пересекает указанный эллипс, и при этом длина отрезка прямой,\n" +
+            "находящейся внутри эллипса, максимальна.\n";
 
     /**
      * заголовок окна
@@ -46,9 +49,8 @@ public class Problem {
      *
      * @param x      координата X точки
      * @param y      координата Y точки
-     * @param setVal номер множества
      */
-    public void addPoint(double x, double y, int setVal) {
+    public void addPoint(double x, double y) {
         Point point = new Point(x, y);
         points.add(point);
     }
@@ -115,11 +117,14 @@ public class Problem {
      * @param n кол-во точек
      */
     public void addRandomPoints(int n) {
-        ellips = Ellips.getRandomEllips();
         for (int i = 0; i < n; i++) {
             Point p = Point.getRandomPoint();
             points.add(p);
         }
+    }
+
+    public void setRandomElipse(){
+        ellips = Ellips.getRandomEllips();
     }
 
     /**
