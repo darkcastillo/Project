@@ -29,7 +29,10 @@ public class Problem {
     /**
      * список точек
      */
-    private ArrayList<Point> points;
+    public ArrayList<Point> points;
+
+    Ellips ellips;
+
 
     /**
      * Конструктор класса задачи
@@ -46,7 +49,7 @@ public class Problem {
      * @param setVal номер множества
      */
     public void addPoint(double x, double y, int setVal) {
-        Point point = new Point(x, y, setVal);
+        Point point = new Point(x, y);
         points.add(point);
     }
 
@@ -83,7 +86,7 @@ public class Problem {
                 double y = sc.nextDouble();
                 int setVal = sc.nextInt();
                 sc.nextLine();
-                Point point = new Point(x, y, setVal);
+                Point point = new Point(x, y);
                 points.add(point);
             }
         } catch (Exception ex) {
@@ -98,7 +101,7 @@ public class Problem {
         try {
             PrintWriter out = new PrintWriter(new FileWriter(FILE_NAME));
             for (Point point : points) {
-                out.printf("%.2f %.2f %d\n", point.x, point.y, point.setNumber);
+                out.printf("%.2f %.2f %d\n", point.x, point.y);
             }
             out.close();
         } catch (IOException ex) {
@@ -112,6 +115,7 @@ public class Problem {
      * @param n кол-во точек
      */
     public void addRandomPoints(int n) {
+        ellips = Ellips.getRandomEllips();
         for (int i = 0; i < n; i++) {
             Point p = Point.getRandomPoint();
             points.add(p);
@@ -123,6 +127,7 @@ public class Problem {
      */
     public void clear() {
         points.clear();
+        ellips = null;
     }
 
     /**
@@ -131,9 +136,11 @@ public class Problem {
      * @param gl переменная OpenGL для рисования
      */
     public void render(GL2 gl) {
-//        for (Point point : points) {
-//            point.render(gl);
-//        }
+        for (Point point : points) {
+            point.render(gl);
+        }
+        if (ellips != null)
+            ellips.render(gl);
 
         //  Figures.renderPoint(gl,0.1,0.7, 5);
         //   Figures.renderPoint(gl,0.3,0.6, 7);
@@ -144,8 +151,9 @@ public class Problem {
 
         //   Figures.renderCircle(gl, 0, 0, 0.6, false);
 
-        Ellips ellips = new Ellips(0.7, 0.3, 0.5, 0.6);
-        ellips.render(gl);
-
+//        Ellips ellips = new Ellips(0.7, 0.3, 0.5, 0.6);
+//        ellips.render(gl);
+//        Line line = new Line(0.1,0.2,-0.1,0.3);
+//        line.render(gl);
     }
 }

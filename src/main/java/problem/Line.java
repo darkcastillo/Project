@@ -3,7 +3,7 @@ package problem;
 import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
 
-public class line {
+public class Line {
     /**
      * Рисование точки
      *
@@ -15,7 +15,7 @@ public class line {
 
 
 
-    public line(int x1, int y1, int x2, int y2) {
+    public Line(double x1, double y1, double x2, double y2) {
         this.a = y1 - y2;
         this.b = x2 - x1;
         this.c = x1 * y2 - x2 * y1;
@@ -23,7 +23,7 @@ public class line {
 
     void render(GL2 gl) {
 
-        gl.glBegin(GL.GL_POINTS);
+        gl.glBegin(GL.GL_LINES);
         double p1x = -c/a;
         double p2y = -c/b;
         gl.glVertex2d(0, p2y);
