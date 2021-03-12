@@ -26,7 +26,12 @@ public class Form extends JFrame {
     private JButton solveBtn;
     private JLabel problemText;
     private JButton addPoint;
-    private JButton setRandomElipse;
+    private JButton setRandomEllipse;
+    private JTextField x1EllipsField;
+    private JTextField y1EllipsField;
+    private JTextField x2EllipsField;
+    private JTextField y2EllipsField;
+    private JButton addEllips;
     /**
      * таймер
      */
@@ -89,15 +94,28 @@ public class Form extends JFrame {
                 renderer.problem.addPoint(x, y);
             }
         });
+
+        addEllips.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double x1 = Double.parseDouble(x1EllipsField.getText());
+                double y1 = Double.parseDouble(y1EllipsField.getText());
+                double x2 = Double.parseDouble(x2EllipsField.getText());
+                double y2 = Double.parseDouble(y2EllipsField.getText());
+                renderer.problem.addEllips(x1, y1, x2, y2);
+            }
+        });
+
         randomBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 renderer.problem.addRandomPoints(Integer.parseInt(pointCntField.getText()));
             }
-        }); setRandomElipse.addActionListener(new ActionListener() {
+        });
+        setRandomEllipse.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                renderer.problem.setRandomElipse();
+                renderer.problem.setRandomEllipse();
             }
         });
         loadFromFileBtn.addActionListener(new ActionListener() {

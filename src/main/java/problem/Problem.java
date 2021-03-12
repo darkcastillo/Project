@@ -22,7 +22,7 @@ public class Problem {
     /**
      * заголовок окна
      */
-    public static final String PROBLEM_CAPTION = "Итоговый проект ученика 10-7 Иванова Ивана";
+    public static final String PROBLEM_CAPTION = "Итоговый проект ученицы 10-7 Кармалитовой Екатерины";
 
     /**
      * путь к файлу
@@ -36,6 +36,7 @@ public class Problem {
 
     Ellips ellips;
 
+    Line line;
 
     /**
      * Конструктор класса задачи
@@ -47,8 +48,8 @@ public class Problem {
     /**
      * Добавить точку
      *
-     * @param x      координата X точки
-     * @param y      координата Y точки
+     * @param x координата X точки
+     * @param y координата Y точки
      */
     public void addPoint(double x, double y) {
         Point point = new Point(x, y);
@@ -56,22 +57,26 @@ public class Problem {
     }
 
     /**
+     * Добавить эллипс
+     */
+    public void addEllips(double x1, double y1, double x2, double y2) {
+        ellips = new Ellips(x1, y1, x2, y2);
+    }
+
+    /**
      * Решить задачу
      */
     public void solve() {
+        if (ellips==null){
+            System.out.println("Эллипс не задан");
+            return;
+        }
+
         // перебираем пары точек
         for (Point p : points) {
-            for (Point p2 : points) {
-                // если точки являются разными
-                if (p != p2) {
-                    // если координаты у них совпадают
-                    if (Math.abs(p.x - p2.x) < 0.0001 && Math.abs(p.y - p2.y) < 0.0001) {
-                        p.isSolution = true;
-                        p2.isSolution = true;
-                    }
-                }
-            }
+
         }
+        //line =
     }
 
     /**
@@ -123,7 +128,7 @@ public class Problem {
         }
     }
 
-    public void setRandomElipse(){
+    public void setRandomEllipse() {
         ellips = Ellips.getRandomEllips();
     }
 
@@ -133,6 +138,7 @@ public class Problem {
     public void clear() {
         points.clear();
         ellips = null;
+        line = null;
     }
 
     /**
@@ -146,6 +152,8 @@ public class Problem {
         }
         if (ellips != null)
             ellips.render(gl);
+        if (line != null)
+            line.render(gl);
 
         //  Figures.renderPoint(gl,0.1,0.7, 5);
         //   Figures.renderPoint(gl,0.3,0.6, 7);
