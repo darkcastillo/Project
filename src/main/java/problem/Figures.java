@@ -122,7 +122,7 @@ public class Figures {
         }
     }
 
-    public static void renderEllips(GL2 gl, double posAX, double posAY, double posBX, double posBY) {
+    public static void renderEllipse(GL2 gl, double posAX, double posAY, double posBX, double posBY) {
         gl.glColor3d(0, 1, 0);
 
         double posEX = (posAX + posBX) / 2;

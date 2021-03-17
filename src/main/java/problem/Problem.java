@@ -34,7 +34,7 @@ public class Problem {
      */
     public ArrayList<Point> points;
 
-    Ellips ellips;
+    Ellipse ellipse;
 
     Line line;
 
@@ -59,15 +59,15 @@ public class Problem {
     /**
      * Добавить эллипс
      */
-    public void addEllips(double x1, double y1, double x2, double y2) {
-        ellips = new Ellips(x1, y1, x2, y2);
+    public void addEllipse(double x1, double y1, double x2, double y2) {
+        ellipse = new Ellipse(x1, y1, x2, y2);
     }
 
     /**
      * Решить задачу
      */
     public void solve() {
-        if (ellips==null){
+        if (ellipse==null){
             System.out.println("Эллипс не задан");
             return;
         }
@@ -129,7 +129,7 @@ public class Problem {
     }
 
     public void setRandomEllipse() {
-        ellips = Ellips.getRandomEllips();
+        ellipse = Ellipse.getRandomEllipse();
     }
 
     /**
@@ -137,7 +137,7 @@ public class Problem {
      */
     public void clear() {
         points.clear();
-        ellips = null;
+        ellipse = null;
         line = null;
     }
 
@@ -150,8 +150,8 @@ public class Problem {
         for (Point point : points) {
             point.render(gl);
         }
-        if (ellips != null)
-            ellips.render(gl);
+        if (ellipse != null)
+            ellipse.render(gl);
         if (line != null)
             line.render(gl);
 
@@ -164,8 +164,8 @@ public class Problem {
 
         //   Figures.renderCircle(gl, 0, 0, 0.6, false);
 
-//        Ellips ellips = new Ellips(0.7, 0.3, 0.5, 0.6);
-//        ellips.render(gl);
+//        Ellipse ellipse = new Ellipse(0.7, 0.3, 0.5, 0.6);
+//        ellipse.render(gl);
 //        Line line = new Line(0.1,0.2,-0.1,0.3);
 //        line.render(gl);
     }

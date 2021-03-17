@@ -1,6 +1,5 @@
 package Gui;
 
-import problem.Point;
 import problem.Problem;
 
 import javax.swing.*;
@@ -27,11 +26,11 @@ public class Form extends JFrame {
     private JLabel problemText;
     private JButton addPoint;
     private JButton setRandomEllipse;
-    private JTextField x1EllipsField;
-    private JTextField y1EllipsField;
-    private JTextField x2EllipsField;
-    private JTextField y2EllipsField;
-    private JButton addEllips;
+    private JTextField x1EllipseField;
+    private JTextField y1EllipseField;
+    private JTextField x2EllipseField;
+    private JTextField y2EllipseField;
+    private JButton addEllipse;
     /**
      * таймер
      */
@@ -95,14 +94,14 @@ public class Form extends JFrame {
             }
         });
 
-        addEllips.addActionListener(new ActionListener() {
+        addEllipse.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double x1 = Double.parseDouble(x1EllipsField.getText());
-                double y1 = Double.parseDouble(y1EllipsField.getText());
-                double x2 = Double.parseDouble(x2EllipsField.getText());
-                double y2 = Double.parseDouble(y2EllipsField.getText());
-                renderer.problem.addEllips(x1, y1, x2, y2);
+                double x1 = Double.parseDouble(x1EllipseField.getText());
+                double y1 = Double.parseDouble(y1EllipseField.getText());
+                double x2 = Double.parseDouble(x2EllipseField.getText());
+                double y2 = Double.parseDouble(y2EllipseField.getText());
+                renderer.problem.addEllipse(x1, y1, x2, y2);
             }
         });
 

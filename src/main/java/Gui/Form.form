@@ -271,7 +271,7 @@
               </grid>
             </constraints>
           </vspacer>
-          <component id="ae801" class="javax.swing.JButton" binding="addEllips">
+          <component id="ae801" class="javax.swing.JButton" binding="addEllipse">
             <constraints>
               <grid row="3" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="40" height="-1"/>
@@ -290,7 +290,7 @@
               <text value="X1"/>
             </properties>
           </component>
-          <component id="44445" class="javax.swing.JTextField" binding="x1EllipsField">
+          <component id="44445" class="javax.swing.JTextField" binding="x1EllipseField">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="50" height="-1"/>
@@ -309,7 +309,7 @@
               <text value="Y1"/>
             </properties>
           </component>
-          <component id="52947" class="javax.swing.JTextField" binding="y1EllipsField">
+          <component id="52947" class="javax.swing.JTextField" binding="y1EllipseField">
             <constraints>
               <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="50" height="-1"/>
@@ -328,7 +328,7 @@
               <text value="X2"/>
             </properties>
           </component>
-          <component id="c3004" class="javax.swing.JTextField" binding="x2EllipsField">
+          <component id="c3004" class="javax.swing.JTextField" binding="x2EllipseField">
             <constraints>
               <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="50" height="-1"/>
@@ -347,7 +347,7 @@
               <text value="Y2"/>
             </properties>
           </component>
-          <component id="cd812" class="javax.swing.JTextField" binding="y2EllipsField">
+          <component id="cd812" class="javax.swing.JTextField" binding="y2EllipseField">
             <constraints>
               <grid row="3" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="50" height="-1"/>
