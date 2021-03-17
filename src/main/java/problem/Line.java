@@ -9,25 +9,35 @@ public class Line {
      *
      * @param gl переменная OpenGl для рисования
      */
-    double a;
-    double b;
-    double c;
+    double x1;
+    double y1;
+    double x2;
+    double y2;
 
+    public Line(Point a, Point b) {
+        this(a.x, a.y, b.x, b.y);
+    }
 
 
     public Line(double x1, double y1, double x2, double y2) {
-        this.a = y1 - y2;
-        this.b = x2 - x1;
-        this.c = x1 * y2 - x2 * y1;
+        double dx = x2 - x1;
+        double dy = y2 - y1;
+        double ln = Math.sqrt(dx * dx + dy * dy);
+        dx = dx / ln * 3;
+        dy = dy / ln * 3;
+        this.x1 = x1 - dx;
+        this.y1 = y1 - dy;
+
+        this.x2 = x1 + dx;
+        this.y2 = y1 + dy;
     }
 
     void render(GL2 gl) {
 
         gl.glBegin(GL.GL_LINES);
-        double p1x = -c/a;
-        double p2y = -c/b;
-        gl.glVertex2d(0, p2y);
-        gl.glVertex2d(p1x, 0);
+
+        gl.glVertex2d(x1, y1);
+        gl.glVertex2d(x2, y2);
 
         gl.glEnd();
 

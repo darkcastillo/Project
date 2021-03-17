@@ -38,6 +38,10 @@ public class Problem {
 
     Line line;
 
+    Point resultPointA;
+    Point resultPointB;
+
+
     /**
      * Конструктор класса задачи
      */
@@ -67,16 +71,26 @@ public class Problem {
      * Решить задачу
      */
     public void solve() {
-        if (ellipse==null){
+        if (ellipse == null) {
             System.out.println("Эллипс не задан");
             return;
         }
-
+        //----------------------------------решение--------------------------------
+        // вход: ellipse, points!!!
+        // ответ записать в точки resultPointA, resultPointB!!!
+        double max = 0;
         // перебираем пары точек
         for (Point p : points) {
-
+            // решение демонстрационной задачи о прямой от начала координат до самой дальней точки, эта задача в конечном проекте не нужна.
+//            if (p.x * p.x + p.y * p.y > max) {
+//                resultPointA = p;
+//                max = p.x * p.x + p.y * p.y;
+//                resultPointB = new Point(0, 0);
+//            }
         }
-        //line =
+        //--------------------------------------------------
+
+        line = new Line(resultPointA, resultPointB);
     }
 
     /**
@@ -139,6 +153,8 @@ public class Problem {
         points.clear();
         ellipse = null;
         line = null;
+        resultPointA = null;
+        resultPointB = null;
     }
 
     /**
@@ -147,13 +163,21 @@ public class Problem {
      * @param gl переменная OpenGL для рисования
      */
     public void render(GL2 gl) {
+        gl.glColor3d(0, 1, 0);
         for (Point point : points) {
             point.render(gl);
         }
         if (ellipse != null)
             ellipse.render(gl);
-        if (line != null)
+
+        if (line != null) {
+            gl.glColor3d(0.7, 0.1, 0.6);
             line.render(gl);
+            gl.glPointSize(5);
+            resultPointA.render(gl);
+            resultPointB.render(gl);
+            gl.glPointSize(1);
+        }
 
         //  Figures.renderPoint(gl,0.1,0.7, 5);
         //   Figures.renderPoint(gl,0.3,0.6, 7);
