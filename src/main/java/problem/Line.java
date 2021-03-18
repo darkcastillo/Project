@@ -4,15 +4,19 @@ import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
 
 public class Line {
-    /**
-     * Рисование точки
-     *
-     * @param gl переменная OpenGl для рисования
-     */
+
     double x1;
     double y1;
     double x2;
     double y2;
+
+    public Line(Point a, Point b, boolean t){
+        x1 = a.x;
+        x2 = b.x;
+        y1 = a.y;
+        y2 = b.y;
+    }
+
 
     public Line(Point a, Point b) {
         this(a.x, a.y, b.x, b.y);

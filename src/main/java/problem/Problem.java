@@ -36,8 +36,9 @@ public class Problem {
 
     Ellipse ellipse;
 
-    Line line;
+    Line line, line1;
 
+    Point pointA, pointB;
     Point resultPointA;
     Point resultPointB;
 
@@ -75,21 +76,15 @@ public class Problem {
             System.out.println("Эллипс не задан");
             return;
         }
-        //----------------------------------решение--------------------------------
-        // вход: ellipse, points!!!
-        // ответ записать в точки resultPointA, resultPointB!!!
-        double max = 0;
-        // перебираем пары точек
-        for (Point p : points) {
-            // решение демонстрационной задачи о прямой от начала координат до самой дальней точки, эта задача в конечном проекте не нужна.
-//            if (p.x * p.x + p.y * p.y > max) {
-//                resultPointA = p;
-//                max = p.x * p.x + p.y * p.y;
-//                resultPointB = new Point(0, 0);
-//            }
-        }
-        //--------------------------------------------------
 
+        Solver solver = new Solver(ellipse, points);
+        Point[] resultPoints = solver.solve();
+        resultPointA = resultPoints[0];
+        resultPointB = resultPoints[1];
+        pointA = resultPoints[2];
+        pointB = resultPoints[3];
+
+        line1 = new Line(resultPointA, resultPointB, true);
         line = new Line(resultPointA, resultPointB);
     }
 
@@ -176,6 +171,10 @@ public class Problem {
             gl.glPointSize(5);
             resultPointA.render(gl);
             resultPointB.render(gl);
+            gl.glColor3d(1.0, 0.0, 0.0);
+            line1.render(gl);
+            pointA.render(gl);
+            pointB.render(gl);
             gl.glPointSize(1);
         }
 
