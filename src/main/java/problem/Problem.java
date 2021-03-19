@@ -96,11 +96,15 @@ public class Problem {
         try {
             File file = new File(FILE_NAME);
             Scanner sc = new Scanner(file);
+            double x1 = sc.nextDouble();
+            double y1 = sc.nextDouble();
+            double x2 = sc.nextDouble();
+            double y2 = sc.nextDouble();
+            ellipse = new Ellipse(x1, y1, x2, y2);
             // пока в файле есть непрочитанные строки
             while (sc.hasNextLine()) {
                 double x = sc.nextDouble();
                 double y = sc.nextDouble();
-                int setVal = sc.nextInt();
                 sc.nextLine();
                 Point point = new Point(x, y);
                 points.add(point);
@@ -116,8 +120,9 @@ public class Problem {
     public void saveToFile() {
         try {
             PrintWriter out = new PrintWriter(new FileWriter(FILE_NAME));
+            out.printf("%.2f %.2f %.2f %.2f\n", ellipse.posAX, ellipse.posAY, ellipse.posBX, ellipse.posBY);
             for (Point point : points) {
-                out.printf("%.2f %.2f %d\n", point.x, point.y);
+                out.printf("%.2f %.2f\n", point.x, point.y);
             }
             out.close();
         } catch (IOException ex) {
@@ -160,22 +165,28 @@ public class Problem {
     public void render(GL2 gl) {
         gl.glColor3d(0, 1, 0);
         for (Point point : points) {
+            gl.glPointSize(3);
             point.render(gl);
         }
         if (ellipse != null)
             ellipse.render(gl);
 
         if (line != null) {
-            gl.glColor3d(0.7, 0.1, 0.6);
-            line.render(gl);
-            gl.glPointSize(5);
-            resultPointA.render(gl);
-            resultPointB.render(gl);
+            gl.glLineWidth(3);
             gl.glColor3d(1.0, 0.0, 0.0);
+            line.render(gl);
+            gl.glColor3d(0.7, 0.1, 0.6);
+
             line1.render(gl);
+            gl.glPointSize(7);
+
+            gl.glColor3d(1.0, 1.0, 1.0);
+//            resultPointA.render(gl);
+//            resultPointB.render(gl);
             pointA.render(gl);
             pointB.render(gl);
-            gl.glPointSize(1);
+
+
         }
 
         //  Figures.renderPoint(gl,0.1,0.7, 5);
